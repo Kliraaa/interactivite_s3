@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cps6kl4sqjmic"]
+[gd_scene load_steps=2 format=3 uid="uid://cps6kl4sqjmic"]
+
+[ext_resource type="Texture2D" uid="uid://c4usmdv3xr18t" path="res://sprites/bc-png.png" id="1_ig7tw"]
 
 [node name="main" type="Node2D"]
+
+[node name="arriere-plan" type="Sprite2D" parent="."]
+position = Vector2(571.556, 322)
+scale = Vector2(0.603704, 0.603704)
+texture = ExtResource("1_ig7tw")
