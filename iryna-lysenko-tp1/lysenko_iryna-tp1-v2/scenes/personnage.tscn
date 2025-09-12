@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8xl3fu662cba"]
+
+[ext_resource type="Texture2D" uid="uid://bd8iepgd1t4q2" path="res://asstets/sprites/Idle-1.png" id="1_a2nqg"]
+[ext_resource type="Script" uid="uid://b0iholoknmg8k" path="res://scenes/personnage.gd" id="1_vv0fa"]
+[ext_resource type="Texture2D" uid="uid://dsx3yp7y1kwe8" path="res://asstets/sprites/Idle-2.png" id="2_2y57b"]
+[ext_resource type="Texture2D" uid="uid://ck6v00234lvrr" path="res://asstets/sprites/Singing.png" id="4_27mm1"]
+[ext_resource type="AudioStream" uid="uid://ca1qh4wm8rmdi" path="res://asstets/audio/fry-scream-cut.mp3" id="5_27mm1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lyp4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a2nqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2y57b")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_27mm1")
+}],
+"loop": false,
+"name": &"singing",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2nqg"]
+size = Vector2(127, 471)
+
+[node name="Chanteur" type="CharacterBody2D"]
+script = ExtResource("1_vv0fa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(627, 342)
+scale = Vector2(0.511719, 0.511719)
+sprite_frames = SubResource("SpriteFrames_lyp4m")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(555.5, 333.5)
+shape = SubResource("RectangleShape2D_a2nqg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_27mm1")
+bus = &"scream"

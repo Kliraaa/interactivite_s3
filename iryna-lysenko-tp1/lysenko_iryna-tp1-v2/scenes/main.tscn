@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfjx1vodbhadc"]
+
+[ext_resource type="Texture2D" uid="uid://igjuibfslr2m" path="res://asstets/sprites/Background-light.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b8xl3fu662cba" path="res://scenes/personnage.tscn" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://i56p4fgtsehq" path="res://asstets/audio/action-heavy-metal-loop.mp3" id="3_sugp2"]
+
+[node name="home-page" type="Node2D"]
+
+[node name="Background-light" type="Sprite2D" parent="."]
+position = Vector2(580.556, 325)
+scale = Vector2(0.603704, 0.603704)
+texture = ExtResource("1_ig7tw")
+
+[node name="Chanteur" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(42, -14)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(583, 328)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sugp2")
+autoplay = true
+bus = &"music"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 274.0
+offset_top = 124.0
+offset_right = 508.0
+offset_bottom = 164.0
+text = "Appuyez sur W pour chanter"
